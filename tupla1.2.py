@@ -58,7 +58,6 @@ nome=(input("Inserisci prodotto: "))
 
 nomeprodottomax=(input("Inserisci prodotto per vedere massimo prezzo e in quale giorno: "))
 
-#nomeprodottoMin=(input("Inserisci prodotto per vedere minimo prezzo e in quale giorno: "))
 
 print("Prezzo medio :",nome," ",medioinserito(prezzi_prodotti,nome))
 
@@ -67,7 +66,7 @@ print("Prezzo medio totale: ",prezzoMedioTot(prezzi_prodotti))
 prezzoM,g=prezzoMax(prezzi_prodotti,nomeprodottomax)
 print("Prezzo massimo di ",nomeprodottomax,": ",prezzoM," giorno: ",g)
 prezzoMinimale,gMinimale,prodottoMinimale=prezzoMin(prezzi_prodotti)
-print("Prezzo minimo: ",prezzoMinimale," Giorno: ",gMinimale," Prodotto: ",prodottoMinimale)#nomeprodottoMin)
+print("Prezzo minimo: ",prezzoMinimale," Giorno: ",gMinimale," Prodotto: ",prodottoMinimale)
 
 
 
