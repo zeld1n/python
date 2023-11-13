@@ -1,6 +1,7 @@
 prezzi_prodotti=(
     ("Mela",("Lunedi",1.0),("Martedi",1.2),("Mercoledi",1.1),("Giovedi",5.0),("Venerdi",1.2),("Sabato",1.1),("Domenica",1.4)),
-    ("Banana",("Lunedi",0.8),("Martedi",0.9),("Mercoledi",0.7),("Giovedi",3.0),("Venerdi",1.0),("Sabato",2),("Domenica",1.0))
+    ("Banana",("Lunedi",0.8),("Martedi",0.9),("Mercoledi",0.7),("Giovedi",3.0),("Venerdi",1.0),("Sabato",2),("Domenica",1.0)),
+    ("Fragola",("Lunedi",0.3),("Martedi",0.9),("Mercoledi",0.7),("Giovedi",3.0),("Venerdi",12.0),("Sabato",2),("Domenica",12.0))
 
 )
 
@@ -45,13 +46,16 @@ def prezzoMin(tupla):
     prezzoMinTot=5
     giornoMin=""
     prodottoMin=""
+    array=[]
     for prodotto,*altro in tupla:
         for giorno,prezzo in altro:
             if(prezzoMinTot>prezzo):
                 prezzoMinTot=prezzo
                 giornoMin=giorno
                 prodottoMin=prodotto
-    return (prezzoMinTot,giornoMin,prodottoMin)
+                ritorn=(prodottoMin,prezzoMinTot,giornoMin)
+                array.append(ritorn)
+    return array
 
 
 nome=(input("Inserisci prodotto: "))
@@ -65,8 +69,9 @@ print("Prezzo medio totale: ",prezzoMedioTot(prezzi_prodotti))
 
 prezzoM,g=prezzoMax(prezzi_prodotti,nomeprodottomax)
 print("Prezzo massimo di ",nomeprodottomax,": ",prezzoM," giorno: ",g)
-prezzoMinimale,gMinimale,prodottoMinimale=prezzoMin(prezzi_prodotti)
-print("Prezzo minimo: ",prezzoMinimale," Giorno: ",gMinimale," Prodotto: ",prodottoMinimale)
+print("",prezzoMin(prezzi_prodotti))
+#prezzoMinimale,gMinimale,prodottoMinimale=prezzoMin(prezzi_prodotti)
+print("Prezzo minimo: ",prezzoMin(prezzi_prodotti))
 
 
 
