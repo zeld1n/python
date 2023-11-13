@@ -70,7 +70,6 @@ print("Prezzo medio totale: ",prezzoMedioTot(prezzi_prodotti))
 prezzoM,g=prezzoMax(prezzi_prodotti,nomeprodottomax)
 print("Prezzo massimo di ",nomeprodottomax,": ",prezzoM," giorno: ",g)
 print("",prezzoMin(prezzi_prodotti))
-#prezzoMinimale,gMinimale,prodottoMinimale=prezzoMin(prezzi_prodotti)
 print("Prezzo minimo: ",prezzoMin(prezzi_prodotti))
 
 
