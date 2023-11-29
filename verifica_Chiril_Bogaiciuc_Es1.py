@@ -32,7 +32,6 @@ def medioVen(tupla):
                     if(valMin>valore):
                         valMin=valore
                         meseMin=mese
-        
             return (impMedio/cont,(valMax,meseMax),(valMin,meseMin))
     return ("Tupla non è stata trovata")
 
