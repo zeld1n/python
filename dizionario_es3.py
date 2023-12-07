@@ -50,7 +50,7 @@ def mediaTutti(diz):
         for vet in diz[keys]:
             media+=vet[1]
             cont+=1    
-        return (media/cont)
+    return (media/cont)
     
 def assenzeNicola(diz):
     nome="Nicola Spina"
