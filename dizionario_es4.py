@@ -16,6 +16,7 @@ pagella = {
 }
 def stampaStudentePrimoQuad(pagella):
     nome=input("Inserisci nome del studente :" )
+    
     for vettore in pagella.keys():
         if(nome==vettore):
             for vet in pagella[vettore]:
