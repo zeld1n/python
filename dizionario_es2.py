@@ -17,8 +17,6 @@ def mediovoti(dizionario):
             #quit()
     
 
-        
-
 numeroStud=int(input("Numero di studenti: "))
 if(numeroStud<=0):
     print("Hai inserito numero non valido :) ")
@@ -33,7 +31,6 @@ for _ in range(numeroStud):
     fisica=int(input("Inserisci il voto in fisica: "))
     chimica=int(input("Inserisci il voto in chimica: "))
     voti[nomeStud]=[mate,fisica,chimica]
-    
+
 media,nome=mediovoti(voti)
 print("La media dei voti di: ",nome," è: ",media )  
-
