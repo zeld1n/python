@@ -45,10 +45,10 @@ def controllaVittoria(board):
 
   
 def boardInizio():
-  print("Scelta disponibili:\ntop-L|top-M|top-R\n-+-+-\nmid-L|mid-M|mid-R\n-+-+-\nlow-L|low-M|low-R\n--------------")
+  print("Scelta disponibili:\ntop-L|top-M|top-R\n-+-+-\nmid-L|mid-M|mid-R\n-+-+-\nlow-L|low-M|low-R\n-----------------")
 #stabilisce il turno iniziale 
 turn = 'X'
-#boardInizio()
+boardInizio()
 
 
 #ciclo per gestire le 9 mosse
