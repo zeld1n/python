@@ -48,7 +48,6 @@ def cerca(dict):
 
 
 def mostra_tutti(dict):
-  print(dict)
   pp.pprint(dict)
 
 def modifica(dict):          

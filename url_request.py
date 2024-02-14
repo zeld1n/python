@@ -53,18 +53,8 @@ def esecuzioneinserio(siti_web):
         effettua_request(siti_web[i])
     endTime=time.time()
     print("Tempo di esecuzione in serie: ",endTime-startTime)
+ 
 
-def esecuzioneMultiProc(siti_web):
-    job=[]
-    startTime=time.time()
-    for i in range(len(siti_web)):
-        process=Process(target=effettua_request(siti_web[i]))
-        job.append(process)
-        job[i].start()
-        job[i].join()
-        
-
-    
     endTime=time.time()
     print("Tempo in Paralello: ",endTime-startTime)
 
@@ -74,5 +64,22 @@ def esecuzioneThread(siti_web):
 
 if __name__ == '__main__':
 # Esempio di utiliz
-    #esecuzioneinserio(siti_web) Використовувати кью для мульти процесс і треду
-    esecuzioneMultiProc(siti_web)
+    #esecuzioneinserio(siti_web)
+    startTime=time.time()
+    
+    queue = Queue()
+
+    processes = []
+    for url in siti_web:
+        process = Process(target=effettua_request, args=(url,))
+        processes.append(process)
+        process.start()
+
+    for process in processes:
+        process.join()
+
+    while not queue.empty():
+        print(queue.get())
+
+    endTime=time.time()
+    print("Tempo di esecuzione: ",endTime-startTime)
