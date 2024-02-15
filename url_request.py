@@ -33,7 +33,9 @@ siti_web = [
 ]
 import requests
 import time
-from multiprocessing import Process, Queue,current_process
+from multiprocessing import Process, current_process
+from threading import Thread
+from queue import Queue
 
 
 def effettua_request(url):
@@ -45,29 +47,9 @@ def effettua_request(url):
     except requests.exceptions.RequestException as e:
         print("Errore durante la richiesta:", e)
 
-
-
-def esecuzioneinserio(siti_web):
-    startTime=time.time()
-    for i in range(len(siti_web)):
-        effettua_request(siti_web[i])
-    endTime=time.time()
-    print("Tempo di esecuzione in serie: ",endTime-startTime)
- 
-
-    endTime=time.time()
-    print("Tempo in Paralello: ",endTime-startTime)
-
-def esecuzioneThread(siti_web):
-    pass
-
-
-if __name__ == '__main__':
-# Esempio di utiliz
-    #esecuzioneinserio(siti_web)
+def esecuzione1Processo1url(siti_web):
     startTime=time.time()
     
-    queue = Queue()
 
     processes = []
     for url in siti_web:
@@ -78,8 +60,39 @@ if __name__ == '__main__':
     for process in processes:
         process.join()
 
-    while not queue.empty():
-        print(queue.get())
-
     endTime=time.time()
     print("Tempo di esecuzione: ",endTime-startTime)
+
+def esecuzioneinserio(siti_web):
+    startTime=time.time()
+    for i in range(len(siti_web)):
+        effettua_request(siti_web[i])
+    endTime=time.time()
+    print("Tempo di esecuzione in serie: ",endTime-startTime)
+
+
+
+def worker(queue):
+    while True:
+        a=queue.get()
+        effettua_request(a)
+        queue.task_done()
+def esecuzione4ProcessiQueue(siti_web):
+    queue = Queue()
+    startTime=time.time()
+    for url in (siti_web):
+        queue.put(url)
+    process=[Thread(target=worker,args=(queue,)) for _ in range(4)]
+    
+    [processes.start() for processes in process]
+
+    queue.join()
+
+    endTime=time.time()
+    print("Tempo di esecuzione in paralello: ",endTime-startTime)
+
+if __name__ == '__main__':
+# Esempio di utiliz
+    esecuzioneinserio(siti_web)
+    esecuzione1Processo1url(siti_web)
+    esecuzione4ProcessiQueue(siti_web)
