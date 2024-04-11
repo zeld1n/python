@@ -108,7 +108,7 @@ def aggiungereaaDizionario():
         secondiIns=int(input(f"Inserisci minuti di {corsa} : "))
         centesimiIns=int(input(f"Inserisci minuti di {corsa} : "))
         categoriaIns=input("Inserisci categoria: ")
-        campionati[nome]=((corsa,(minutiIns,secondiIns,centesimiIns),categoriaIns))
+        campionati[nome].update((corsa,(minutiIns,secondiIns,centesimiIns),categoriaIns))
     
     
 
