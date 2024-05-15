@@ -19,7 +19,11 @@ class Tabellone:
   def push(self,pagella):
     self.tabella.append(pagella)
   def pop(self,studente):
-    self.tabella.pop(studente)
+    cont=0
+    for pagella in self.tabella:
+       if pagella.nome_studente == studente:
+          self.tabella.pop(cont)
+       cont+=1
   def cercaPagella(self,studente):
     for i in self.tabella:
         if(i.nome_studente==studente):
@@ -28,7 +32,7 @@ class Tabellone:
     
   def __repr__(self):
     vis=""
-    for i in self.tabella:
+    for i in self.tabella:  
         for cont in range(len(i.pagella)):
             vis+="Pagella di "+str(i.nome_studente)+": "+"Materia: "+str(i.pagella[cont][0])+"="+str(i.pagella[cont][1])+" Ore di assenza: "+str(i.pagella[cont][2])+"\n\n"
     return vis
@@ -42,7 +46,7 @@ while True:
 3.Verifica se la pagella di uno studente è presente
 4.Visualizza
 0.USCIRE
-                    """))
+"""))
   if(scelta==1):
     nome=input("Inserisci nome: ")
     pagella1=Pagella(nome)
@@ -62,7 +66,6 @@ while True:
   if(scelta==0):
      break
     
-
 
 
 
